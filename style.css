@@ -2,68 +2,37 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 :root {
-    --preto: #05070b;
-    --preto2: #0b1018;
-    --azul: #008cff;
-    --azul2: #00b7ff;
-    --azul3: #123b66;
-    --branco: #eaf7ff;
-    --cinza: #a8bfd0;
+    --preto: #080506;
+    --preto2: #12090c;
+
+    --vinho: #7a1631;
+    --vinho2: #b52b50;
+    --vinho3: #48101f;
+
+    --branco: #f7edef;
+    --cinza: #c7adb4;
 }
 
 body {
     margin: 0;
     color: var(--branco);
     font-family: "Trebuchet MS", Arial, sans-serif;
-    background-color: #02050a;
+    background-color: #020304;
 }
 
 .pagina {
-    width: min(1100px, calc(100% - 30px));
+    width: min(950px, calc(100% - 30px));
     margin: 20px auto;
     padding: 20px;
-    background: #05080d;
-    border: 3px solid var(--azul);
-}
-
-.menu {
-    min-height: 64px;
-    border: 2px solid var(--azul3);
-    background: #0a0f17;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
-}
-
-.menu button {
-    border: 1px solid var(--azul);
-    background: #081521;
-    color: var(--azul2);
-    border-radius: 22px;
-    min-width: 48px;
-    padding: 9px 16px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0,140,255,.15);
-}
-
-.menu button:hover {
-    background: var(--azul);
-    color: #00111f;
+    background: #090607;
+    border: 3px solid var(--vinho);
 }
 
 .faixa {
-    margin-top: 18px;
     height: 40px;
-    border: 1px solid var(--azul3);
-    background: #081019;
+    border: 1px solid var(--vinho3);
+    background: #12090c;
     overflow: hidden;
     position: relative;
 }
@@ -74,61 +43,110 @@ body {
     top: 50%;
     transform: translateY(-50%);
     right: 16px;
-    color: var(--azul2);
+    color: var(--vinho2);
     font-weight: bold;
 }
 
-.bloco {
-    margin-top: 20px;
-    padding: 38px 42px;
-    border: none;
-    background: #070c12;
+.conteudo {
+    padding: 36px 28px;
     text-align: center;
-    display: none;
-}
-
-.bloco.ativo {
-    display: block;
-}
-
-.bloco h2 {
-    max-width: 900px;
-    margin: 0 auto 24px;
-    color: var(--azul2);
-    font-size: clamp(26px, 4vw, 34px);
-    line-height: 1.25;
-}
-
-.instrucao {
-    color: #d7edff;
-    margin-bottom: 28px;
 }
 
 
-/* VINIS */
+/* FOTO */
 
-.lista-vinis {
+.foto-area {
+    display: flex;
+    justify-content: center;
+}
+
+.foto {
+    width: min(360px, 90%);
+    aspect-ratio: 4 / 5;
+    border: 2px solid var(--vinho);
+    position: relative;
+    overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
-    margin-top: 35px;
-}
-
-.item-vinil {
-    text-align: center;
-    padding: 24px 12px;
-    border: 1px solid var(--azul3);
+    place-items: center;
+    color: var(--vinho2);
     background: var(--preto2);
 }
 
-.item-vinil h3 {
-    margin: 18px 0 14px;
+.foto img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* MENSAGEM */
+
+.mensagem {
+    max-width: 700px;
+    margin: 35px auto 45px;
+}
+
+.mensagem h1 {
+    margin-bottom: 18px;
+    color: var(--vinho2);
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 44px);
+}
+
+.mensagem p {
+    margin: 0;
+    color: var(--branco);
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+
+/* MÚSICA */
+
+.musica {
+    padding-top: 10px;
+}
+
+.musica h2 {
+    color: var(--vinho2);
+    font-size: clamp(26px, 4vw, 34px);
+    margin-bottom: 10px;
+}
+
+.instrucao {
+    color: var(--cinza);
+    margin-bottom: 30px;
+}
+
+.item-vinil {
+    width: min(370px, 100%);
+    margin: 0 auto;
+    padding: 28px 20px;
+    border: none;
+    background: transparent;
+}
+
+.toca-discos {
+    width: min(340px, 95%);
+    aspect-ratio: 1.15;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
 }
 
 .vinil {
+    width: min(230px, 80%);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
     display: grid;
     place-items: center;
-    border-radius: 50%;
+
     background:
         repeating-radial-gradient(
             circle,
@@ -136,23 +154,17 @@ body {
             #171717 9px 15px,
             #050505 16px 20px
         );
-    box-shadow: 0 6px 20px rgba(0,0,0,.65);
-}
 
-.vinil-multiplo {
-    width: min(190px, 80%);
-    aspect-ratio: 1 / 1;
-    margin: 0 auto;
-    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,.65);
 }
 
 .selo {
     width: 34%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--azul);
-    border: 4px solid #86d5ff;
-    color: #00101c;
+    background: var(--vinho);
+    border: 4px solid #d45a79;
+    color: #f7edef;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -175,8 +187,50 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.girando,
-.vinil-multiplo.girando {
+.pino {
+    position: absolute;
+    right: 12px;
+    top: 28px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #8f8f8f;
+    border: 3px solid #4b4b4b;
+    z-index: 3;
+}
+
+.braco {
+    position: absolute;
+    right: 25px;
+    top: 48px;
+    width: 13px;
+    height: 190px;
+    border-radius: 10px;
+    background: #c6c6c6;
+    transform-origin: top center;
+    transform: rotate(20deg);
+    transition: transform .5s;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.45);
+    z-index: 2;
+}
+
+.agulha {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 32px;
+    height: 26px;
+    transform: translateX(-50%);
+    background: var(--vinho);
+    border: 2px solid var(--vinho2);
+    border-radius: 4px;
+}
+
+.item-vinil.tocando .braco {
+    transform: rotate(42deg);
+}
+
+.vinil.girando {
     animation: girar 2.5s linear infinite;
 }
 
@@ -186,85 +240,105 @@ body {
     }
 }
 
-.botao-vinil {
-    padding: 10px 18px;
-    border: 1px solid var(--azul2);
-    background: var(--azul);
-    color: #00101c;
+.item-vinil h3 {
+    margin: 20px 0 14px;
+    color: var(--branco);
+}
+
+#botaoPlay {
+    padding: 11px 20px;
+    border: 1px solid var(--vinho2);
+    background: var(--vinho);
+    color: var(--branco);
     font-weight: bold;
     cursor: pointer;
 }
 
-
-/* SOBRE VOCÊ */
-
-.sobre {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 35px;
-    text-align: left;
-    align-items: center;
+#botaoPlay:hover {
+    background: var(--vinho2);
 }
 
-.foto {
-    min-height: 360px;
-    border: 2px solid var(--azul);
-    display: grid;
-    place-items: center;
-    position: relative;
-    overflow: hidden;
-    color: var(--azul2);
-}
 
-.foto img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.texto-sobre h3 {
-    color: var(--azul2);
-    font-size: 25px;
-}
+/* RODAPÉ */
 
 footer {
-    margin-top: 20px;
-    padding: 25px;
-    border: 1px solid var(--azul3);
+    margin-top: 10px;
+    padding: 22px;
+    border-top: 1px solid var(--vinho3);
     text-align: center;
-    color: var(--azul2);
-    background: #081019;
+    color: var(--vinho2);
 }
 
 
 /* CELULAR */
 
-@media (max-width: 760px) {
+@media (max-width: 700px) {
     .pagina {
         width: calc(100% - 12px);
-        padding: 10px;
         margin: 6px auto;
+        padding: 10px;
     }
 
-    .menu {
-        flex-wrap: wrap;
+    .conteudo {
+        padding: 28px 14px;
     }
 
-    .bloco {
-        padding: 28px 16px;
+    .mensagem p {
+        font-size: 16px;
     }
 
-    .lista-vinis {
+    .vinil {
+        width: min(210px, 82%);
+    }
+}
+
+
+/* FOTO E VINIL LADO A LADO */
+
+.linha-principal {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(380px, 1.35fr);
+    gap: 45px;
+    align-items: center;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.linha-principal .foto-area {
+    width: 100%;
+}
+
+.linha-principal .foto {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.linha-principal .musica {
+    padding-top: 0;
+}
+
+.linha-principal .item-vinil {
+    width: 100%;
+    max-width: 430px;
+}
+
+.mensagem {
+    margin-top: 45px;
+}
+
+@media (max-width: 800px) {
+    .linha-principal {
         grid-template-columns: 1fr;
+        gap: 35px;
     }
 
-    .sobre {
-        grid-template-columns: 1fr;
+    .linha-principal .foto {
+        max-width: 360px;
     }
 
-    .foto {
-        min-height: 300px;
+    .linha-principal .item-vinil {
+        max-width: 430px;
+        margin: 0 auto;
     }
 }

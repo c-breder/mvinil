@@ -10,71 +10,48 @@
 
 <div class="pagina">
 
-    <nav class="menu">
-        <button data-alvo="musica">♫</button>
-        <button data-alvo="sobre">sobre você</button>
-    </nav>
-
     <div class="faixa">
         <div class="faixa-texto">Um site especial para uma pessoa especial •</div>
     </div>
 
-    <section id="musica" class="bloco">
-        <h2>Meu acervo de vinis</h2>
-        <p class="instrucao">Clique no vinil ou no botão para tocar.</p>
+    <main class="conteudo">
 
-        <div class="lista-vinis">
+        <div class="linha-principal">
 
-            <div class="item-vinil" data-musica="musicas/musica1.mp3">
-                <div class="vinil vinil-multiplo" role="button" tabindex="0">
-                    <div class="selo"><strong>01</strong><i></i></div>
+            <section class="foto-area">
+                <div class="foto">
+                    <img src="imagens/foto.jpg" alt="" onerror="this.style.display='none'">
+                    <span>coloque sua foto aqui</span>
                 </div>
-                <h3>Música 1</h3>
-                <button class="botao-vinil">▶ TOCAR</button>
-            </div>
+            </section>
 
-            <div class="item-vinil" data-musica="musicas/musica2.mp3">
-                <div class="vinil vinil-multiplo" role="button" tabindex="0">
-                    <div class="selo"><strong>02</strong><i></i></div>
-                </div>
-                <h3>Música 2</h3>
-                <button class="botao-vinil">▶ TOCAR</button>
-            </div>
+            <section class="musica">
+<div class="item-vinil" data-musica="musicas/musica.mp3">
 
-            <div class="item-vinil" data-musica="musicas/musica3.mp3">
-                <div class="vinil vinil-multiplo" role="button" tabindex="0">
-                    <div class="selo"><strong>03</strong><i></i></div>
+                    <div class="toca-discos">
+                        <div class="vinil" role="button" tabindex="0">
+                            <div class="selo">
+                                <strong>01</strong>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <div class="pino"></div>
+                        <div class="braco">
+                            <div class="agulha"></div>
+                        </div>
+                    </div>
+
+                    <h3>Nome da música</h3>
+                    <button id="botaoPlay">▶ TOCAR</button>
                 </div>
-                <h3>Música 3</h3>
-                <button class="botao-vinil">▶ TOCAR</button>
-            </div>
+
+                <audio id="audio" preload="metadata"></audio>
+            </section>
 
         </div>
 
-        <audio id="audio" preload="metadata"></audio>
-    </section>
-
-    <section id="sobre" class="bloco">
-        <h2>Sobre você</h2>
-
-        <div class="sobre">
-            <div class="foto">
-                <img src="imagens/foto.jpg" alt="" onerror="this.style.display='none'">
-                <span>coloque sua foto aqui</span>
-            </div>
-
-            <div class="texto-sobre">
-                <h3>Uma pessoa especial</h3>
-                <p>
-                    Use este espaço para escrever qualquer coisa sobre a pessoa,
-                    contar uma história ou guardar uma lembrança.
-                </p>
-
-                <h3>Coisas especiais</h3>
-                <p>Músicas • lugares • filmes • momentos • lembranças</p>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <footer>
         feito com carinho &lt;3
