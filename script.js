@@ -1,62 +1,58 @@
 const audio = document.getElementById("audio");
-const vinil = document.getElementById("vinil");
-const vitrola = document.querySelector(".vitrola");
-const botaoPlay = document.getElementById("botaoPlay");
-const statusTexto = document.getElementById("status");
-const progresso = document.getElementById("progresso");
-const tempoAtual = document.getElementById("tempoAtual");
-const duracao = document.getElementById("duracao");
+const itensVinil = document.querySelectorAll(".item-vinil");
+let itemTocando = null;
 
-function formatarTempo(segundos) {
-    if (!Number.isFinite(segundos)) return "0:00";
-    const minutos = Math.floor(segundos / 60);
-    const segundosRestantes = Math.floor(segundos % 60).toString().padStart(2, "0");
-    return `${minutos}:${segundosRestantes}`;
+function pararVisual(item) {
+    if (!item) return;
+
+    item.querySelector(".vinil").classList.remove("girando");
+    item.querySelector(".botao-vinil").textContent = "▶ TOCAR";
 }
 
-function mudarEstado(tocando) {
-    vinil.classList.toggle("girando", tocando);
-    vitrola.classList.toggle("tocando", tocando);
-    botaoPlay.textContent = tocando ? "⏸ PAUSAR DISCO" : "▶ TOCAR DISCO";
-    statusTexto.textContent = tocando ? "Vitrola tocando" : "Vitrola parada";
-}
+async function tocarVinil(item) {
+    const arquivo = item.dataset.musica;
+    const vinil = item.querySelector(".vinil");
+    const botao = item.querySelector(".botao-vinil");
 
-async function tocarOuPausar() {
-    if (audio.paused) {
-        try {
-            await audio.play();
-            mudarEstado(true);
-        } catch {
-            // Se não houver música, não mostra nenhuma mensagem.
-        }
-    } else {
+    if (itemTocando === item && !audio.paused) {
         audio.pause();
-        mudarEstado(false);
+        pararVisual(item);
+        return;
+    }
+
+    pararVisual(itemTocando);
+
+    if (itemTocando !== item) {
+        audio.src = arquivo;
+        itemTocando = item;
+    }
+
+    try {
+        await audio.play();
+        vinil.classList.add("girando");
+        botao.textContent = "❚❚ PAUSAR";
+    } catch {
+        pararVisual(item);
     }
 }
 
-vinil.addEventListener("click", tocarOuPausar);
-botaoPlay.addEventListener("click", tocarOuPausar);
+itensVinil.forEach(item => {
+    const botao = item.querySelector(".botao-vinil");
+    const vinil = item.querySelector(".vinil");
 
-audio.addEventListener("loadedmetadata", () => {
-    duracao.textContent = formatarTempo(audio.duration);
-});
+    botao.addEventListener("click", () => tocarVinil(item));
+    vinil.addEventListener("click", () => tocarVinil(item));
 
-audio.addEventListener("timeupdate", () => {
-    if (!audio.duration) return;
-    tempoAtual.textContent = formatarTempo(audio.currentTime);
-    progresso.value = (audio.currentTime / audio.duration) * 100;
-});
-
-progresso.addEventListener("input", () => {
-    if (!audio.duration) return;
-    audio.currentTime = (progresso.value / 100) * audio.duration;
+    vinil.addEventListener("keydown", evento => {
+        if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            tocarVinil(item);
+        }
+    });
 });
 
 audio.addEventListener("ended", () => {
-    mudarEstado(false);
-    progresso.value = 0;
-    tempoAtual.textContent = "0:00";
+    pararVisual(itemTocando);
 });
 
 const botoesMenu = document.querySelectorAll(".menu button");

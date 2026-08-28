@@ -28,46 +28,39 @@
     </header>
 
     <section id="musica" class="bloco">
-        <h2>
-            Nem todas as músicas do mundo seriam suficientes para dizer o que eu sinto,
-            mas eu tenho uma canção especial para você :)
-        </h2>
+            <h2>Meu acervo de vinis</h2>
+            <p class="instrucao">Clique no vinil ou no botão para tocar.</p>
 
-        <p class="instrucao">Clique no vinil ou no botão abaixo para tocar a música!</p>
+            <div class="lista-vinis">
 
-        <div class="vitrola">
-            <div id="vinil" class="vinil" role="button" tabindex="0">
-                <div class="selo">
-                    <span>MINHA</span>
-                    <strong>MÚSICA</strong>
-                    <i></i>
+                <div class="item-vinil" data-musica="musicas/musica1.mp3">
+                    <div class="vinil vinil-multiplo" role="button" tabindex="0">
+                        <div class="selo"><strong>01</strong><i></i></div>
+                    </div>
+                    <h3>Música 1</h3>
+                    <button class="botao-vinil">▶ TOCAR</button>
                 </div>
+
+                <div class="item-vinil" data-musica="musicas/musica2.mp3">
+                    <div class="vinil vinil-multiplo" role="button" tabindex="0">
+                        <div class="selo"><strong>02</strong><i></i></div>
+                    </div>
+                    <h3>Música 2</h3>
+                    <button class="botao-vinil">▶ TOCAR</button>
+                </div>
+
+                <div class="item-vinil" data-musica="musicas/musica3.mp3">
+                    <div class="vinil vinil-multiplo" role="button" tabindex="0">
+                        <div class="selo"><strong>03</strong><i></i></div>
+                    </div>
+                    <h3>Música 3</h3>
+                    <button class="botao-vinil">▶ TOCAR</button>
+                </div>
+
             </div>
 
-            <div class="pino"></div>
-            <div class="braco">
-                <div class="agulha"></div>
-            </div>
-        </div>
-
-        <div class="player">
-            <h3>Nome da Música</h3>
-            <p>Nome do Artista</p>
-            <button id="botaoPlay">▶ TOCAR DISCO</button>
-
-            <div class="barra">
-                <span id="tempoAtual">0:00</span>
-                <input id="progresso" type="range" min="0" max="100" value="0">
-                <span id="duracao">0:00</span>
-            </div>
-
-            <p id="status">Vitrola parada</p>
-        </div>
-
-        <audio id="audio" preload="metadata">
-            <source src="musicas/musica.mp3" type="audio/mpeg">
-        </audio>
-    </section>
+            <audio id="audio" preload="metadata"></audio>
+        </section>
 
     <section id="flores" class="bloco">
         <h2>Um pequeno presente para você</h2>
