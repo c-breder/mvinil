@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site Especial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="pagina">
+
+    <nav class="menu">
+        <button data-alvo="musica">♫</button>
+        <button data-alvo="flores">flores</button>
+        <button data-alvo="carta">✉</button>
+        <button data-alvo="vales">&lt;3</button>
+        <button data-alvo="sobre">sobre você</button>
+    </nav>
+
+    <div class="faixa">
+        <div class="faixa-texto">Um site especial para uma pessoa especial •</div>
+    </div>
+
+    <header class="hero">
+        <h1>Uma mensagem especial &lt;3</h1>
+        <p>Troque este texto por aquilo que você quiser escrever.</p>
+    </header>
+
+    <section id="musica" class="bloco">
+        <h2>
+            Nem todas as músicas do mundo seriam suficientes para dizer o que eu sinto,
+            mas eu tenho uma canção especial para você :)
+        </h2>
+
+        <p class="instrucao">Clique no vinil ou no botão abaixo para tocar a música!</p>
+
+        <div class="vitrola">
+            <div id="vinil" class="vinil" role="button" tabindex="0">
+                <div class="selo">
+                    <span>MINHA</span>
+                    <strong>MÚSICA</strong>
+                    <i></i>
+                </div>
+            </div>
+
+            <div class="pino"></div>
+            <div class="braco">
+                <div class="agulha"></div>
+            </div>
+        </div>
+
+        <div class="player">
+            <h3>Nome da Música</h3>
+            <p>Nome do Artista</p>
+            <button id="botaoPlay">▶ TOCAR DISCO</button>
+
+            <div class="barra">
+                <span id="tempoAtual">0:00</span>
+                <input id="progresso" type="range" min="0" max="100" value="0">
+                <span id="duracao">0:00</span>
+            </div>
+
+            <p id="status">Vitrola parada</p>
+        </div>
+
+        <audio id="audio" preload="metadata">
+            <source src="musicas/musica.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section id="flores" class="bloco">
+        <h2>Um pequeno presente para você</h2>
+        <p class="instrucao">Clique na caixa para abrir.</p>
+
+        <div id="presente" class="presente" role="button" tabindex="0">
+            <div class="laco">
+                <div class="laco-esq"></div>
+                <div class="laco-dir"></div>
+            </div>
+            <div class="tampa"></div>
+            <div class="caixa"><div class="fita"></div></div>
+        </div>
+
+        <div id="surpresa" class="surpresa">
+            <div class="flores">✦ ✦ ✦ ✦ ✦</div>
+            <h3>Flores para você</h3>
+            <p>Coloque aqui sua mensagem.</p>
+        </div>
+    </section>
+
+    <section id="carta" class="bloco">
+        <h2>Uma carta especial</h2>
+        <p class="instrucao">Clique no envelope para abrir.</p>
+
+        <div id="envelope" class="envelope" role="button" tabindex="0">
+            <div class="papel">
+                <p>Para: alguém especial</p>
+                <h3>Minha carta</h3>
+                <p>
+                    Escreva aqui o seu texto. Você pode colocar uma mensagem grande,
+                    vários parágrafos e tudo o que quiser.
+                </p>
+                <p class="assinatura">Com carinho &lt;3</p>
+            </div>
+
+            <div class="corpo-envelope"></div>
+            <div class="aba"></div>
+            <div class="selo-carta">♥</div>
+        </div>
+    </section>
+
+    <section id="vales" class="bloco">
+        <h2>Alguns vales para você</h2>
+        <p class="instrucao">Clique em cada cartão para revelar.</p>
+
+        <div class="grid-vales">
+            <div class="vale">
+                <div class="frente-vale">VALE #01<br><small>clique para abrir</small></div>
+                <div class="verso-vale"><strong>UM PASSEIO</strong><br>sem data de validade</div>
+            </div>
+
+            <div class="vale">
+                <div class="frente-vale">VALE #02<br><small>clique para abrir</small></div>
+                <div class="verso-vale"><strong>UM ABRAÇO</strong><br>uso ilimitado</div>
+            </div>
+
+            <div class="vale">
+                <div class="frente-vale">VALE #03<br><small>clique para abrir</small></div>
+                <div class="verso-vale"><strong>UMA SURPRESA</strong><br>quando você quiser</div>
+            </div>
+
+            <div class="vale">
+                <div class="frente-vale">VALE #04<br><small>clique para abrir</small></div>
+                <div class="verso-vale"><strong>UM FILME</strong><br>você escolhe</div>
+            </div>
+
+            <div class="vale">
+                <div class="frente-vale">VALE #05<br><small>clique para abrir</small></div>
+                <div class="verso-vale"><strong>UM DOCE</strong><br>seu favorito</div>
+            </div>
+
+            <div class="vale">
+                <div class="frente-vale">VALE #06<br><small>clique para abrir</small></div>
+                <div class="verso-vale"><strong>QUALQUER COISA</strong><br>surpresa</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="bloco">
+        <h2>Sobre você</h2>
+
+        <div class="sobre">
+            <div class="foto">
+                <img src="imagens/foto.jpg" alt="" onerror="this.style.display='none'">
+                <span>coloque sua foto aqui</span>
+            </div>
+
+            <div class="texto-sobre">
+                <h3>Uma pessoa especial</h3>
+                <p>
+                    Use este espaço para escrever qualquer coisa sobre a pessoa,
+                    contar uma história ou guardar uma lembrança.
+                </p>
+
+                <h3>Coisas especiais</h3>
+                <p>Músicas • lugares • filmes • momentos • lembranças</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        feito com carinho &lt;3
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

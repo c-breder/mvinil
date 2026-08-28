@@ -1,0 +1,18 @@
+COMO USAR
+
+1. Coloque sua música em:
+   musicas/musica.mp3
+
+2. Se quiser usar uma foto:
+   imagens/foto.jpg
+
+3. Abra index.html.
+
+ESTRUTURA
+- index.html = textos e conteúdo
+- style.css = aparência preta e azul
+- script.js = música e partes clicáveis
+
+A página NÃO usa rolagem por tela/slide.
+As seções ficam todas uma embaixo da outra, como no exemplo.
+O menu apenas leva diretamente até cada seção.
