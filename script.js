@@ -1,5 +1,6 @@
 const audio = document.getElementById("audio");
 const itensVinil = document.querySelectorAll(".item-vinil");
+
 let itemTocando = null;
 
 function pararVisual(item) {
@@ -14,14 +15,17 @@ async function tocarVinil(item) {
     const vinil = item.querySelector(".vinil");
     const botao = item.querySelector(".botao-vinil");
 
+    // Se clicar no mesmo vinil que está tocando, pausa.
     if (itemTocando === item && !audio.paused) {
         audio.pause();
         pararVisual(item);
         return;
     }
 
+    // Para a animação do vinil anterior.
     pararVisual(itemTocando);
 
+    // Se escolheu outro vinil, troca a música.
     if (itemTocando !== item) {
         audio.src = arquivo;
         itemTocando = item;
@@ -32,6 +36,7 @@ async function tocarVinil(item) {
         vinil.classList.add("girando");
         botao.textContent = "❚❚ PAUSAR";
     } catch {
+        // Se o arquivo não existir, não mostra mensagem.
         pararVisual(item);
     }
 }
@@ -55,27 +60,25 @@ audio.addEventListener("ended", () => {
     pararVisual(itemTocando);
 });
 
+
+// NAVEGAÇÃO ENTRE MÚSICAS E SOBRE VOCÊ
+
 const botoesMenu = document.querySelectorAll(".menu button");
 const blocos = document.querySelectorAll(".bloco");
-const paginaInicial = document.querySelector(".hero");
 
-// A página inicial antiga fica escondida.
-if (paginaInicial) {
-    paginaInicial.classList.add("escondido");
-}
-
-// Esconde todas as seções.
+// Esconde todas as páginas.
 blocos.forEach(bloco => {
     bloco.classList.remove("ativo");
 });
 
-// Ao abrir o site, mostra somente "Sobre você".
+// Ao abrir o site, mostra "Sobre você".
 const sobre = document.getElementById("sobre");
+
 if (sobre) {
     sobre.classList.add("ativo");
 }
 
-// Ao clicar no menu, mostra somente a seção escolhida.
+// Ao clicar em um botão, mostra somente a página escolhida.
 botoesMenu.forEach(botao => {
     botao.addEventListener("click", () => {
         const pagina = document.getElementById(botao.dataset.alvo);
@@ -90,20 +93,4 @@ botoesMenu.forEach(botao => {
 
         window.scrollTo(0, 0);
     });
-});
-
-const presente = document.getElementById("presente");
-const surpresa = document.getElementById("surpresa");
-
-presente.addEventListener("click", () => {
-    presente.classList.toggle("aberto");
-    surpresa.classList.toggle("mostrar");
-});
-
-document.getElementById("envelope").addEventListener("click", function() {
-    this.classList.toggle("aberto");
-});
-
-document.querySelectorAll(".vale").forEach(vale => {
-    vale.addEventListener("click", () => vale.classList.toggle("aberto"));
 });

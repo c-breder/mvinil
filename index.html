@@ -12,9 +12,6 @@
 
     <nav class="menu">
         <button data-alvo="musica">♫</button>
-        <button data-alvo="flores">flores</button>
-        <button data-alvo="carta">✉</button>
-        <button data-alvo="vales">&lt;3</button>
         <button data-alvo="sobre">sobre você</button>
     </nav>
 
@@ -22,122 +19,39 @@
         <div class="faixa-texto">Um site especial para uma pessoa especial •</div>
     </div>
 
-    <header class="hero">
-        <h1>Uma mensagem especial &lt;3</h1>
-        <p>Troque este texto por aquilo que você quiser escrever.</p>
-    </header>
-
     <section id="musica" class="bloco">
-            <h2>Meu acervo de vinis</h2>
-            <p class="instrucao">Clique no vinil ou no botão para tocar.</p>
+        <h2>Meu acervo de vinis</h2>
+        <p class="instrucao">Clique no vinil ou no botão para tocar.</p>
 
-            <div class="lista-vinis">
+        <div class="lista-vinis">
 
-                <div class="item-vinil" data-musica="musicas/musica1.mp3">
-                    <div class="vinil vinil-multiplo" role="button" tabindex="0">
-                        <div class="selo"><strong>01</strong><i></i></div>
-                    </div>
-                    <h3>Música 1</h3>
-                    <button class="botao-vinil">▶ TOCAR</button>
+            <div class="item-vinil" data-musica="musicas/musica1.mp3">
+                <div class="vinil vinil-multiplo" role="button" tabindex="0">
+                    <div class="selo"><strong>01</strong><i></i></div>
                 </div>
+                <h3>Música 1</h3>
+                <button class="botao-vinil">▶ TOCAR</button>
+            </div>
 
-                <div class="item-vinil" data-musica="musicas/musica2.mp3">
-                    <div class="vinil vinil-multiplo" role="button" tabindex="0">
-                        <div class="selo"><strong>02</strong><i></i></div>
-                    </div>
-                    <h3>Música 2</h3>
-                    <button class="botao-vinil">▶ TOCAR</button>
+            <div class="item-vinil" data-musica="musicas/musica2.mp3">
+                <div class="vinil vinil-multiplo" role="button" tabindex="0">
+                    <div class="selo"><strong>02</strong><i></i></div>
                 </div>
+                <h3>Música 2</h3>
+                <button class="botao-vinil">▶ TOCAR</button>
+            </div>
 
-                <div class="item-vinil" data-musica="musicas/musica3.mp3">
-                    <div class="vinil vinil-multiplo" role="button" tabindex="0">
-                        <div class="selo"><strong>03</strong><i></i></div>
-                    </div>
-                    <h3>Música 3</h3>
-                    <button class="botao-vinil">▶ TOCAR</button>
+            <div class="item-vinil" data-musica="musicas/musica3.mp3">
+                <div class="vinil vinil-multiplo" role="button" tabindex="0">
+                    <div class="selo"><strong>03</strong><i></i></div>
                 </div>
-
+                <h3>Música 3</h3>
+                <button class="botao-vinil">▶ TOCAR</button>
             </div>
 
-            <audio id="audio" preload="metadata"></audio>
-        </section>
-
-    <section id="flores" class="bloco">
-        <h2>Um pequeno presente para você</h2>
-        <p class="instrucao">Clique na caixa para abrir.</p>
-
-        <div id="presente" class="presente" role="button" tabindex="0">
-            <div class="laco">
-                <div class="laco-esq"></div>
-                <div class="laco-dir"></div>
-            </div>
-            <div class="tampa"></div>
-            <div class="caixa"><div class="fita"></div></div>
         </div>
 
-        <div id="surpresa" class="surpresa">
-            <div class="flores">✦ ✦ ✦ ✦ ✦</div>
-            <h3>Flores para você</h3>
-            <p>Coloque aqui sua mensagem.</p>
-        </div>
-    </section>
-
-    <section id="carta" class="bloco">
-        <h2>Uma carta especial</h2>
-        <p class="instrucao">Clique no envelope para abrir.</p>
-
-        <div id="envelope" class="envelope" role="button" tabindex="0">
-            <div class="papel">
-                <p>Para: alguém especial</p>
-                <h3>Minha carta</h3>
-                <p>
-                    Escreva aqui o seu texto. Você pode colocar uma mensagem grande,
-                    vários parágrafos e tudo o que quiser.
-                </p>
-                <p class="assinatura">Com carinho &lt;3</p>
-            </div>
-
-            <div class="corpo-envelope"></div>
-            <div class="aba"></div>
-            <div class="selo-carta">♥</div>
-        </div>
-    </section>
-
-    <section id="vales" class="bloco">
-        <h2>Alguns vales para você</h2>
-        <p class="instrucao">Clique em cada cartão para revelar.</p>
-
-        <div class="grid-vales">
-            <div class="vale">
-                <div class="frente-vale">VALE #01<br><small>clique para abrir</small></div>
-                <div class="verso-vale"><strong>UM PASSEIO</strong><br>sem data de validade</div>
-            </div>
-
-            <div class="vale">
-                <div class="frente-vale">VALE #02<br><small>clique para abrir</small></div>
-                <div class="verso-vale"><strong>UM ABRAÇO</strong><br>uso ilimitado</div>
-            </div>
-
-            <div class="vale">
-                <div class="frente-vale">VALE #03<br><small>clique para abrir</small></div>
-                <div class="verso-vale"><strong>UMA SURPRESA</strong><br>quando você quiser</div>
-            </div>
-
-            <div class="vale">
-                <div class="frente-vale">VALE #04<br><small>clique para abrir</small></div>
-                <div class="verso-vale"><strong>UM FILME</strong><br>você escolhe</div>
-            </div>
-
-            <div class="vale">
-                <div class="frente-vale">VALE #05<br><small>clique para abrir</small></div>
-                <div class="verso-vale"><strong>UM DOCE</strong><br>seu favorito</div>
-            </div>
-
-            <div class="vale">
-                <div class="frente-vale">VALE #06<br><small>clique para abrir</small></div>
-                <div class="verso-vale"><strong>QUALQUER COISA</strong><br>surpresa</div>
-            </div>
-        </div>
+        <audio id="audio" preload="metadata"></audio>
     </section>
 
     <section id="sobre" class="bloco">

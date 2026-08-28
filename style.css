@@ -21,9 +21,6 @@ body {
     color: var(--branco);
     font-family: "Trebuchet MS", Arial, sans-serif;
     background-color: #02050a;
-    background-image:
-        radial-gradient(circle, rgba(0,140,255,.22) 2px, transparent 3px);
-    background-size: 28px 28px;
 }
 
 .pagina {
@@ -31,8 +28,7 @@ body {
     margin: 20px auto;
     padding: 20px;
     background: #05080d;
-    border: 3px dashed var(--azul);
-    box-shadow: 0 0 35px rgba(0,140,255,.25);
+    border: 3px solid var(--azul);
 }
 
 .menu {
@@ -82,37 +78,17 @@ body {
     font-weight: bold;
 }
 
-.hero {
-    margin-top: 18px;
-    border: 2px solid var(--azul);
-    background:
-        linear-gradient(135deg, rgba(0,140,255,.26), rgba(0,20,40,.85)),
-        #07111d;
-    padding: 36px 40px;
-    text-align: center;
-    box-shadow: inset 0 0 40px rgba(0,140,255,.12);
-}
-
-.hero h1 {
-    margin: 0 0 12px;
-    font-family: Georgia, serif;
-    font-size: clamp(32px, 5vw, 48px);
-    color: white;
-    text-shadow: 3px 3px 0 #005a9e;
-}
-
-.hero p {
-    color: #c8eaff;
-    font-style: italic;
-    font-size: 18px;
-}
-
 .bloco {
     margin-top: 20px;
     padding: 38px 42px;
-    border: 2px dotted var(--azul);
+    border: none;
     background: #070c12;
     text-align: center;
+    display: none;
+}
+
+.bloco.ativo {
+    display: block;
 }
 
 .bloco h2 {
@@ -128,31 +104,46 @@ body {
     margin-bottom: 28px;
 }
 
-.vitrola {
-    width: min(450px, 95%);
-    aspect-ratio: 1.14;
-    margin: 0 auto 24px;
-    background:
-        linear-gradient(145deg, #182431, #08111c);
-    border: 5px solid #1565a7;
-    border-radius: 16px;
-    position: relative;
-    box-shadow: 0 20px 30px rgba(0,0,0,.5), inset 0 0 20px rgba(0,140,255,.13);
+
+/* VINIS */
+
+.lista-vinis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.item-vinil {
+    text-align: center;
+    padding: 24px 12px;
+    border: 1px solid var(--azul3);
+    background: var(--preto2);
+}
+
+.item-vinil h3 {
+    margin: 18px 0 14px;
 }
 
 .vinil {
-    position: absolute;
-    width: 68%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    left: 8%;
-    bottom: 7%;
-    cursor: pointer;
     display: grid;
     place-items: center;
+    border-radius: 50%;
     background:
-        repeating-radial-gradient(circle, #0a0a0a 0 8px, #171717 9px 15px, #050505 16px 20px);
+        repeating-radial-gradient(
+            circle,
+            #0a0a0a 0 8px,
+            #171717 9px 15px,
+            #050505 16px 20px
+        );
     box-shadow: 0 6px 20px rgba(0,0,0,.65);
+}
+
+.vinil-multiplo {
+    width: min(190px, 80%);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 .selo {
@@ -184,295 +175,28 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.pino {
-    position: absolute;
-    right: 9%;
-    top: 12%;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #8ba5b9;
-    border: 2px solid #48677d;
-}
-
-.braco {
-    position: absolute;
-    width: 15px;
-    height: 57%;
-    right: 14%;
-    top: 18%;
-    border-radius: 12px;
-    background: #c1d4df;
-    transform-origin: top center;
-    transform: rotate(-30deg);
-    transition: transform .5s;
-    box-shadow: 3px 3px 4px rgba(0,0,0,.4);
-}
-
-.vitrola.tocando .braco {
-    transform: rotate(-8deg);
-}
-
-.agulha {
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    width: 35px;
-    height: 30px;
-    transform: translateX(-50%);
-    background: var(--azul);
-    border-radius: 4px;
-}
-
-.girando {
-    animation: girar 2s linear infinite;
+.girando,
+.vinil-multiplo.girando {
+    animation: girar 2.5s linear infinite;
 }
 
 @keyframes girar {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.player h3 {
-    margin: 0;
-    color: white;
-    font-size: 28px;
-}
-
-.player p {
-    color: var(--cinza);
-}
-
-#botaoPlay {
-    padding: 12px 24px;
+.botao-vinil {
+    padding: 10px 18px;
     border: 1px solid var(--azul2);
-    background: #061829;
-    color: var(--azul2);
-    border-radius: 8px;
-    cursor: pointer;
+    background: var(--azul);
+    color: #00101c;
     font-weight: bold;
-}
-
-#botaoPlay:hover {
-    background: var(--azul);
-    color: #00101c;
-}
-
-.barra {
-    width: min(500px, 100%);
-    margin: 20px auto 0;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 10px;
-    align-items: center;
-    font-size: 12px;
-}
-
-#progresso {
-    accent-color: var(--azul);
-}
-
-.presente {
-    width: 220px;
-    height: 200px;
-    margin: 20px auto;
-    position: relative;
     cursor: pointer;
 }
 
-.caixa {
-    position: absolute;
-    left: 20px;
-    bottom: 0;
-    width: 180px;
-    height: 135px;
-    background: #072342;
-    border: 3px solid var(--azul);
-}
 
-.tampa {
-    position: absolute;
-    top: 42px;
-    left: 5px;
-    width: 210px;
-    height: 42px;
-    background: #0d4f83;
-    border: 3px solid var(--azul2);
-    z-index: 3;
-    transition: .5s;
-}
-
-.fita {
-    width: 26px;
-    height: 100%;
-    margin: auto;
-    background: var(--azul2);
-}
-
-.laco {
-    position: absolute;
-    z-index: 4;
-    top: 16px;
-    left: 50%;
-}
-
-.laco-esq, .laco-dir {
-    position: absolute;
-    width: 52px;
-    height: 34px;
-    border: 9px solid var(--azul2);
-    border-radius: 50%;
-}
-
-.laco-esq {
-    right: -2px;
-    transform: rotate(18deg);
-}
-
-.laco-dir {
-    left: -2px;
-    transform: rotate(-18deg);
-}
-
-.presente.aberto .tampa {
-    transform: translateY(-65px) rotate(-8deg);
-}
-
-.surpresa {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: .5s;
-}
-
-.surpresa.mostrar {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 20px;
-}
-
-.flores {
-    color: var(--azul2);
-    font-size: 48px;
-    letter-spacing: 10px;
-}
-
-.envelope {
-    width: min(620px, 95%);
-    height: 350px;
-    margin: 60px auto 100px;
-    position: relative;
-    cursor: pointer;
-}
-
-.corpo-envelope {
-    position: absolute;
-    left: 0;
-    top: 90px;
-    width: 100%;
-    height: 250px;
-    background: #0a2b47;
-    border: 3px solid var(--azul);
-    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
-    z-index: 3;
-}
-
-.aba {
-    position: absolute;
-    top: 90px;
-    width: 100%;
-    height: 150px;
-    background: #0e3d64;
-    border-top: 3px solid var(--azul);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transform-origin: top;
-    transition: .55s;
-    z-index: 4;
-}
-
-.papel {
-    position: absolute;
-    width: 88%;
-    left: 6%;
-    top: 110px;
-    min-height: 280px;
-    background: #e9f6ff;
-    color: #05111a;
-    padding: 28px;
-    text-align: left;
-    transition: .65s;
-    z-index: 2;
-}
-
-.selo-carta {
-    position: absolute;
-    z-index: 5;
-    left: 50%;
-    top: 185px;
-    transform: translateX(-50%);
-    background: var(--azul);
-    color: #00101c;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-}
-
-.envelope.aberto .aba {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-.envelope.aberto .papel {
-    transform: translateY(-170px);
-    z-index: 6;
-}
-
-.envelope.aberto .selo-carta {
-    opacity: 0;
-}
-
-.assinatura {
-    font-style: italic;
-}
-
-.grid-vales {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-
-.vale {
-    min-height: 180px;
-    position: relative;
-    border: 1px dashed var(--azul);
-    background: #07121d;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-.frente-vale, .verso-vale {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-content: center;
-    padding: 20px;
-    transition: .4s;
-}
-
-.frente-vale {
-    color: var(--azul2);
-}
-
-.verso-vale {
-    background: #073058;
-    color: white;
-    transform: translateY(100%);
-}
-
-.vale.aberto .verso-vale {
-    transform: translateY(0);
-}
+/* SOBRE VOCÊ */
 
 .sobre {
     display: grid;
@@ -484,7 +208,7 @@ body {
 
 .foto {
     min-height: 360px;
-    border: 2px dashed var(--azul);
+    border: 2px solid var(--azul);
     display: grid;
     place-items: center;
     position: relative;
@@ -514,6 +238,9 @@ footer {
     background: #081019;
 }
 
+
+/* CELULAR */
+
 @media (max-width: 760px) {
     .pagina {
         width: calc(100% - 12px);
@@ -529,8 +256,8 @@ footer {
         padding: 28px 16px;
     }
 
-    .grid-vales {
-        grid-template-columns: 1fr 1fr;
+    .lista-vinis {
+        grid-template-columns: 1fr;
     }
 
     .sobre {
@@ -539,85 +266,5 @@ footer {
 
     .foto {
         min-height: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .grid-vales {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding: 28px 18px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-}
-
-
-/* =========================================
-   NAVEGAÇÃO ENTRE AS SEÇÕES
-   ========================================= */
-
-/* As seções ficam escondidas por padrão. */
-.bloco {
-    display: none;
-}
-
-/* Somente a seção escolhida aparece. */
-.bloco.ativo {
-    display: block;
-}
-
-/* O cabeçalho inicial antigo fica escondido. */
-.hero.escondido {
-    display: none;
-}
-
-
-/* ACERVO COM VÁRIOS VINIS */
-.lista-vinis {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
-    margin-top: 35px;
-}
-
-.item-vinil {
-    text-align: center;
-    padding: 24px 12px;
-    border: 1px solid var(--azul3);
-    background: var(--preto2);
-}
-
-.item-vinil h3 {
-    margin: 18px 0 14px;
-}
-
-.vinil-multiplo {
-    width: min(190px, 80%);
-    aspect-ratio: 1 / 1;
-    margin: 0 auto;
-    cursor: pointer;
-}
-
-.vinil-multiplo.girando {
-    animation: girar 2.5s linear infinite;
-}
-
-.botao-vinil {
-    padding: 10px 18px;
-    border: 1px solid var(--azul2);
-    background: var(--azul);
-    color: #00101c;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-@media (max-width: 760px) {
-    .lista-vinis {
-        grid-template-columns: 1fr;
     }
 }
