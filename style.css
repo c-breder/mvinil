@@ -555,3 +555,23 @@ footer {
         font-size: 32px;
     }
 }
+
+
+/* =========================================
+   NAVEGAÇÃO ENTRE AS SEÇÕES
+   ========================================= */
+
+/* As seções ficam escondidas por padrão. */
+.bloco {
+    display: none;
+}
+
+/* Somente a seção escolhida aparece. */
+.bloco.ativo {
+    display: block;
+}
+
+/* O cabeçalho inicial antigo fica escondido. */
+.hero.escondido {
+    display: none;
+}

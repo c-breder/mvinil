@@ -27,7 +27,7 @@ async function tocarOuPausar() {
             await audio.play();
             mudarEstado(true);
         } catch {
-            alert("Coloque um arquivo chamado musica.mp3 dentro da pasta 'musicas'.");
+            // Se não houver música, não mostra nenhuma mensagem.
         }
     } else {
         audio.pause();
@@ -59,12 +59,40 @@ audio.addEventListener("ended", () => {
     tempoAtual.textContent = "0:00";
 });
 
-document.querySelectorAll(".menu button").forEach(botao => {
+const botoesMenu = document.querySelectorAll(".menu button");
+const blocos = document.querySelectorAll(".bloco");
+const paginaInicial = document.querySelector(".hero");
+
+// A página inicial antiga fica escondida.
+if (paginaInicial) {
+    paginaInicial.classList.add("escondido");
+}
+
+// Esconde todas as seções.
+blocos.forEach(bloco => {
+    bloco.classList.remove("ativo");
+});
+
+// Ao abrir o site, mostra somente "Sobre você".
+const sobre = document.getElementById("sobre");
+if (sobre) {
+    sobre.classList.add("ativo");
+}
+
+// Ao clicar no menu, mostra somente a seção escolhida.
+botoesMenu.forEach(botao => {
     botao.addEventListener("click", () => {
-        document.getElementById(botao.dataset.alvo)?.scrollIntoView({
-            behavior: "auto",
-            block: "start"
+        const pagina = document.getElementById(botao.dataset.alvo);
+
+        blocos.forEach(bloco => {
+            bloco.classList.remove("ativo");
         });
+
+        if (pagina) {
+            pagina.classList.add("ativo");
+        }
+
+        window.scrollTo(0, 0);
     });
 });
 
